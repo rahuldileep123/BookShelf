@@ -3,7 +3,7 @@ import { Button, Card } from 'react-bootstrap'
 import { addFavoriteAPI, deleteBookShelfAPI, deleteFavAPI, getAllFavAPI } from '../services/allApi'
 import { Link } from 'react-router-dom'
 
-function BookCard({insideFav,shareBook,setDeleteResp}) {
+function BookCard({insideFav,shareBook,setDeleteResp,setHomeDeleteResp}) {
   const [inFav,setInFav]=useState(false)
   const addFav=async()=>{
     const result= await addFavoriteAPI(shareBook)
@@ -25,6 +25,7 @@ useEffect(()=>{
 
 const deleteBook=async(bookId)=>{
     await deleteBookShelfAPI(bookId)
+    setHomeDeleteResp(shareBook.id)
 }
 const deleteFav=async(bookId)=>{
   await deleteFavAPI(bookId)

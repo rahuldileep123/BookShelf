@@ -5,7 +5,7 @@ import { getAllBookAPI, getAllFavAPI } from '../services/allApi'
 
 function View({addBookResponse}) {
 const [allBook,setAllBook]=useState([])
-
+const [homeDeleteResp,setHomeDeleteResp]=useState("")
 const fetchAllBook=async()=>{
   const result=await getAllBookAPI()
  
@@ -15,12 +15,12 @@ const fetchAllBook=async()=>{
 }
 useEffect(()=>{
 fetchAllBook()
-},[addBookResponse])
+},[addBookResponse,homeDeleteResp])
   return (
     <Row>
       {allBook?.map((book,index)=>(
         <Col key={index} sm={12} md={6} lg={4} >
-      <BookCard insideFav={false} shareBook={book} />
+      <BookCard setHomeDeleteResp={setHomeDeleteResp} insideFav={false} shareBook={book} />
     </Col>
       ))}
     
