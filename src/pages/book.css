@@ -1,0 +1,18 @@
+.bookBox{
+    width: 600px;
+    /* height: 60vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+.bookBox p{
+    text-align: justify;
+}
+.bookBox span{
+    font-size: 21px;
+    color: crimson;
+}
